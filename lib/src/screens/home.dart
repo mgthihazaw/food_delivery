@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_order/src/widgets/category.dart';
+import 'package:food_order/src/widgets/featured.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,9 +13,7 @@ class _HomeState extends State<Home> {
     {'title': "Wine", "image": "assets/images/pic/wine.jpg"},
     {'title': "Meal", "image": "assets/images/pic/meal.jpg"},
     {'title': "Fruit", "image": "assets/images/pic/fruit.jpg"},
-    
     {'title': "Juices", "image": "assets/images/pic/drink.jpg"},
-    
   ];
   @override
   Widget build(BuildContext context) {
@@ -81,8 +80,31 @@ class _HomeState extends State<Home> {
                 trailing: Icon(Icons.filter_list, color: Colors.red[300]),
               )),
           SizedBox(height: 20),
-          Category()
-         ]),
+          Category(),
+          SizedBox(height: 10),
+          Row(
+            children: <Widget>[
+              Expanded(
+                  child: Container(
+                    height:4,
+                decoration: BoxDecoration(color: Colors.red[100]),
+              )),
+              Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text("The Most Favourited Foods",
+                      style: TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.grey))),
+             Expanded(
+                  child: Container(
+                    height:4,
+                decoration: BoxDecoration(color: Colors.red[100]),
+              )),
+            ],
+          ),
+          Featured()
+        ]),
       ),
     );
   }
