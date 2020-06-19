@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_order/src/widgets/category.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -7,13 +8,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final List foods = [
-    {'title': "Pizza", "image": "assets/images/pic/food1.jpg"},
-    {'title': "Chicken", "image": "assets/images/pic/food2.jpg"},
-    {'title': "Pizza", "image": "assets/images/pic/food3.jpg"},
-    {'title': "Pizza", "image": "assets/images/pic/food4.jpg"},
-    {'title': "Pizza", "image": "assets/images/pic/food5.jpg"},
-    {'title': "Pizza", "image": "assets/images/pic/food6.jpg"},
-    {'title': "Pizza", "image": "assets/images/pic/food8.jpg"},
+    {'title': "Beer", "image": "assets/images/pic/beer.jpg"},
+    {'title': "Wine", "image": "assets/images/pic/wine.jpg"},
+    {'title': "Meal", "image": "assets/images/pic/meal.jpg"},
+    {'title': "Fruit", "image": "assets/images/pic/fruit.jpg"},
+    
+    {'title': "Juices", "image": "assets/images/pic/drink.jpg"},
+    
   ];
   @override
   Widget build(BuildContext context) {
@@ -80,38 +81,8 @@ class _HomeState extends State<Home> {
                 trailing: Icon(Icons.filter_list, color: Colors.red[300]),
               )),
           SizedBox(height: 20),
-          Container(
-              height: 70,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 7,
-                itemBuilder: (ctx, index) => Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.red[50],
-                              offset: Offset(2, 2),
-                              blurRadius: 10)
-                        ]),
-                    child: Column(
-                      children: <Widget>[
-                        ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              foods[index]['image'],
-                              width: 60,
-                              height: 50,
-                              fit: BoxFit.cover,
-                            )),
-                        SizedBox(height: 2),
-                        FittedBox(child: Text(foods[index]['title']))
-                      ],
-                    )),
-              )),
-        ]),
+          Category()
+         ]),
       ),
     );
   }
