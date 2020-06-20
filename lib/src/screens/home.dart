@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_order/src/widgets/category.dart';
 import 'package:food_order/src/widgets/featured.dart';
+import 'package:food_order/src/widgets/product-list.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -86,7 +87,7 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               Expanded(
                   child: Container(
-                    height:4,
+                height: 4,
                 decoration: BoxDecoration(color: Colors.red[100]),
               )),
               Padding(
@@ -96,16 +97,63 @@ class _HomeState extends State<Home> {
                           fontSize: 21,
                           fontWeight: FontWeight.w800,
                           color: Colors.grey))),
-             Expanded(
+              Expanded(
                   child: Container(
-                    height:4,
+                height: 4,
                 decoration: BoxDecoration(color: Colors.red[100]),
               )),
             ],
           ),
-          Featured()
+          Featured(),
+          SizedBox(height: 10,),
+           Row(
+            children: <Widget>[
+              Expanded(
+                  child: Container(
+                height: 4,
+                decoration: BoxDecoration(color: Colors.red[100]),
+              )),
+              Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text("Food Lists",
+                      style: TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.grey))),
+              Expanded(
+                  child: Container(
+                height: 4,
+                decoration: BoxDecoration(color: Colors.red[100]),
+              )),
+            ],
+          ),
+          ProductList()
         ]),
       ),
+      bottomNavigationBar: Container(
+          padding: EdgeInsets.all(15),
+          color: Colors.grey[50],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Icon(
+                Icons.home,
+                color: Colors.red[300],
+              ),
+              Icon(
+                Icons.dashboard,
+                color: Colors.red[300],
+              ),
+              Icon(
+                Icons.shopping_basket,
+                color: Colors.red[300],
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.red[300],
+              ),
+            ],
+          )),
     );
   }
 }
